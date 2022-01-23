@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace apoo_2021_t1.src.Models
+{
+    public class Comida
+    {
+        private int id;
+        private string name;
+        private float value;
+        public Comida(string name, float value, int id)
+        {
+            this.id = id;
+            this.name = name;
+            this.value = value;
+        }
+
+        public int getId() { return id; }
+        public string getName() { return name; }
+        public float getValue() { return value; }
+    }
+}

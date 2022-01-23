@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using apoo_2021_t1.src.gui;
 
 namespace apoo_2021_t1
 {
@@ -16,7 +17,7 @@ namespace apoo_2021_t1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new ClienteForm(2));
         }
     }
 }

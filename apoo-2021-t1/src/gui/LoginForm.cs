@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using apoo_2021_t1.src.Singleton;
-using apoo_2021_t1.src.gui;
+using apoo_2021_t1.src.utils;
 
-namespace apoo_2021_t1
+namespace apoo_2021_t1.src.gui
 {
     public partial class LoginForm : Form
     {
@@ -19,6 +19,7 @@ namespace apoo_2021_t1
         public LoginForm()
         {
             db = new BancoProxy();
+            Database asdf = Database.Instance;
             InitializeComponent();
         }
 
@@ -31,7 +32,7 @@ namespace apoo_2021_t1
         {
             string user = this.textBoxLogin.Text;
             string password = this.textBoxPassword.Text;
-            Tuple<int, string> data = db.login(user, password);
+            myTuple<int, string> data = db.login(user, password);
             if (data == null)
             {
                 MessageBox.Show("Usuário ou senha inválidos.");
@@ -43,9 +44,11 @@ namespace apoo_2021_t1
                 {
                     case "customer":
                         new ClienteForm(data.Item1).Show();
+                        this.Hide();
                         break;
                     case "admin":
                         new AdminForm(data.Item1).Show();
+                        this.Hide();
                         break;
                     default:
                         MessageBox.Show("Role inválida.");
@@ -58,6 +61,11 @@ namespace apoo_2021_t1
         private void label4_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

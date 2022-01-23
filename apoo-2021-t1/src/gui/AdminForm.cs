@@ -23,5 +23,10 @@ namespace apoo_2021_t1.src.gui
         {
 
         }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

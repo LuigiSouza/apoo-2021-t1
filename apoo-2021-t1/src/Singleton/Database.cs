@@ -7,15 +7,18 @@ using apoo_2021_t1.src.Models;
 
 namespace apoo_2021_t1.src.Singleton
 {
-    internal class Banco
+    internal class Database
     {
-        static Banco db_instance = null;
+        static Database db_instance = null;
 
-        private IDictionary<string, Pessoa> pessoas;
-        private IDictionary<int, Pessoa> pessoas_id_indexes;
-        private Banco()
+        internal IDictionary<int, Comida> itens;
+
+        internal IDictionary<string, Pessoa> pessoas;
+        internal IDictionary<int, Pessoa> pessoas_id_indexes;
+        private Database()
         {
             Console.WriteLine("Criando banco");
+
             pessoas = new Dictionary<string, Pessoa>
             {
                 { "admin", new Administrador("admin", "admin", 1) },
@@ -26,27 +29,21 @@ namespace apoo_2021_t1.src.Singleton
                 {1, pessoas["admin"] },
                 {2, pessoas["cliente"] }
             };
-        }
 
-        public void addIngrediente() { }
-
-        public Pessoa login(string user, string password)
-        {
-            Pessoa pessoa;
-            if (!pessoas.TryGetValue(user, out pessoa))
+            itens = new Dictionary<int, Comida>
             {
-                return null;
-            }
-
-            return pessoa;
+                { 1, new Comida("Hamburguer", 5.0f, 1) },
+                { 2, new Comida("Pastel", 3.5f, 2) },
+                { 3, new Comida("Café", 1.0f, 3) }
+            };
         }
 
-        public static Banco Instance
+        public static Database Instance
         {
             get
             {
                 if (db_instance == null)
-                    db_instance = new Banco();
+                    db_instance = new Database();
                 return db_instance;
             }
         }
