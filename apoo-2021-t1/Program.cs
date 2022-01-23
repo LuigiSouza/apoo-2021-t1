@@ -17,7 +17,7 @@ namespace apoo_2021_t1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClienteForm(2));
+            Application.Run(new LoginForm());
         }
     }
 }

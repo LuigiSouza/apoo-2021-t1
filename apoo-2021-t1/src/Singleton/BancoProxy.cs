@@ -33,12 +33,22 @@ namespace apoo_2021_t1.src.Singleton
             return pessoa.getRole() == role;
         }
 
-        public override void addOrder(Order order)
+        public override Order createOrder(int user_id)
         {
             if (hasPermission(Roles_enum.customer))
             {
-                base.addOrder(order);
+                return base.createOrder(user_id);
             }
+            return null;
+        }
+
+        public override Order[] getOrders()
+        {
+            if (hasPermission(Roles_enum.admin))
+            {
+                return base.getOrders();
+            }
+            return null;
         }
     }
 }

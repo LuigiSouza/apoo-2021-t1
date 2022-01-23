@@ -19,7 +19,7 @@ namespace apoo_2021_t1.src.gui
         public LoginForm()
         {
             db = new BancoProxy();
-            Database asdf = Database.Instance;
+            Storage asdf = Storage.Instance;
             InitializeComponent();
         }
 
@@ -44,11 +44,9 @@ namespace apoo_2021_t1.src.gui
                 {
                     case "customer":
                         new ClienteForm(data.Item1).Show();
-                        this.Hide();
                         break;
                     case "admin":
                         new AdminForm(data.Item1).Show();
-                        this.Hide();
                         break;
                     default:
                         MessageBox.Show("Role inválida.");

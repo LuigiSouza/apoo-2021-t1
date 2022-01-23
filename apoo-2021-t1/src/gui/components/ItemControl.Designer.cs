@@ -1,7 +1,7 @@
 ﻿
 namespace apoo_2021_t1.src.gui.components
 {
-    partial class Item
+    partial class ItemControl
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -98,7 +98,7 @@ namespace apoo_2021_t1.src.gui.components
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // Item
+            // ItemControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,7 +108,7 @@ namespace apoo_2021_t1.src.gui.components
             this.Controls.Add(this.price);
             this.Controls.Add(this.title);
             this.Controls.Add(this.panel1);
-            this.Name = "Item";
+            this.Name = "ItemControl";
             this.Size = new System.Drawing.Size(608, 135);
             this.ResumeLayout(false);
             this.PerformLayout();

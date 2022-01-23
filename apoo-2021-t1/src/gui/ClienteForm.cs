@@ -41,21 +41,21 @@ namespace apoo_2021_t1.src.gui
 
         private void ClienteForm_Load(object sender, EventArgs e)
         {
-            Comida[] items = facade.getItems();
-            foreach (Comida comida in items)
+            Item[] items = facade.getItems();
+            foreach (Item item in items)
             {
-                Item item = new Item(minus_btn, add_btn);
-                item.Title = comida.getName();
-                item.Price = comida.getValue();
-                item.Quantity = 0;
-                item.Id = comida.getId();
-                flowLayoutPanel1.Controls.Add(item);
+                ItemControl itemControl = new ItemControl(minus_btn, add_btn);
+                itemControl.Title = item.getName();
+                itemControl.Price = item.getValue();
+                itemControl.Quantity = 0;
+                itemControl.Id = item.getId();
+                flowLayoutPanel1.Controls.Add(itemControl);
             };
         }
 
         private void minus_btn(object sender, EventArgs e)
         {
-            Item item = (Item)sender;
+            ItemControl item = (ItemControl)sender;
             if (facade.removeFromCart(item.Id))
             {
                 item.Quantity -= 1;
@@ -64,7 +64,7 @@ namespace apoo_2021_t1.src.gui
         }
         private void add_btn(object sender, EventArgs e)
         {
-            Item item = (Item)sender;
+            ItemControl item = (ItemControl)sender;
             if (facade.addToCart(item.Id))
             {
                 item.Quantity += 1;
@@ -75,7 +75,7 @@ namespace apoo_2021_t1.src.gui
         private void clearCart_Click(object sender, EventArgs e)
         {
             facade.clearCart();
-            foreach (Item item in flowLayoutPanel1.Controls)
+            foreach (ItemControl item in flowLayoutPanel1.Controls)
                 item.Quantity = 0;
             Total = 0;
         }
@@ -83,7 +83,7 @@ namespace apoo_2021_t1.src.gui
         private void finishCart_Click(object sender, EventArgs e)
         {
             facade.order();
-            foreach (Item item in flowLayoutPanel1.Controls)
+            foreach (ItemControl item in flowLayoutPanel1.Controls)
                 item.Quantity = 0;
             Total = 0;
         }

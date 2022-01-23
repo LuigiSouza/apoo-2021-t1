@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-
+﻿
 namespace apoo_2021_t1.src.gui
 {
     partial class ClienteForm
@@ -20,7 +19,6 @@ namespace apoo_2021_t1.src.gui
                 components.Dispose();
             }
             base.Dispose(disposing);
-            Application.Exit();
         }
 
         #region Windows Form Designer generated code
@@ -129,12 +127,12 @@ namespace apoo_2021_t1.src.gui
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button button1;
-        private Button button2;
-        private Button finishCart;
-        private Button clearCart;
-        private Label labelTotal;
-        private Label total;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button finishCart;
+        private System.Windows.Forms.Button clearCart;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label total;
     }
 }

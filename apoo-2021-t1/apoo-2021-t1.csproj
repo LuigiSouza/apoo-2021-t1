@@ -61,11 +61,17 @@
     <Compile Include="src\gui\ClienteForm.Designer.cs">
       <DependentUpon>ClienteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\gui\components\Item.cs">
+    <Compile Include="src\gui\components\ItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\gui\components\Item.Designer.cs">
-      <DependentUpon>Item.cs</DependentUpon>
+    <Compile Include="src\gui\components\ItemControl.Designer.cs">
+      <DependentUpon>ItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\gui\components\OrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\gui\components\OrderControl.Designer.cs">
+      <DependentUpon>OrderControl.cs</DependentUpon>
     </Compile>
     <Compile Include="src\gui\LoginForm.cs">
       <SubType>Form</SubType>
@@ -75,11 +81,11 @@
     </Compile>
     <Compile Include="src\Models\Administrador.cs" />
     <Compile Include="src\Models\Cliente.cs" />
-    <Compile Include="src\Models\Comida.cs" />
+    <Compile Include="src\Models\Item.cs" />
     <Compile Include="src\Models\Order.cs" />
     <Compile Include="src\Models\Pessoa.cs" />
     <Compile Include="src\Singleton\BancoOperações.cs" />
-    <Compile Include="src\Singleton\Database.cs" />
+    <Compile Include="src\Singleton\Storage.cs" />
     <Compile Include="src\Singleton\BancoProxy.cs" />
     <Compile Include="src\utils\myTuple.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -97,8 +103,11 @@
     <EmbeddedResource Include="src\gui\ClienteForm.resx">
       <DependentUpon>ClienteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\components\Item.resx">
-      <DependentUpon>Item.cs</DependentUpon>
+    <EmbeddedResource Include="src\gui\components\ItemControl.resx">
+      <DependentUpon>ItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\gui\components\OrderControl.resx">
+      <DependentUpon>OrderControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\gui\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

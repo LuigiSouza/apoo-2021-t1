@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace apoo_2021_t1.src.Models
 {
-    public class Comida
+    public class Item
     {
         private int id;
         private string name;
         private float value;
-        public Comida(string name, float value, int id)
+        public Item(string name, float value, int id)
         {
             this.id = id;
             this.name = name;

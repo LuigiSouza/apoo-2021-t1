@@ -10,11 +10,11 @@ namespace apoo_2021_t1.src.Singleton
 {
     class BancoOperações
     {
-        protected Database db;
+        protected Storage db;
         public BancoOperações()
         {
             Console.WriteLine("Criando Operações");
-            db = Database.Instance;
+            db = Storage.Instance;
         }
         public Pessoa getPessoa(string user)
         {
@@ -43,29 +43,39 @@ namespace apoo_2021_t1.src.Singleton
             if (pessoa == null || !pessoa.passwordCorrect(password)) return null;
             return new myTuple<int, string>(pessoa.getId(), pessoa.getRole().ToString());
         }
-        public Comida getItem(int id)
+        public Item getItem(int id)
         {
-            Comida comida;
-            if (!db.itens.TryGetValue(id, out comida))
+            Item item;
+            if (!db.itens.TryGetValue(id, out item))
             {
                 return null;
             }
 
-            return comida;
+            return item;
         }
 
-        public Comida[] getItems()
+        public Item[] getItems()
         {
-            ICollection<Comida> values = db.itens.Values;
-            Comida[] comidas = new Comida[db.itens.Count];
+            ICollection<Item> values = db.itens.Values;
+            Item[] items = new Item[db.itens.Count];
             int i = 0;
-            foreach (Comida comida in values) comidas[i++] = comida;
-            return comidas;
+            foreach (Item item in values) items[i++] = item;
+            return items;
+        }
+        public virtual Order[] getOrders()
+        {
+            ICollection<Order> values = db.pedidos.Values;
+            Order[] orders = new Order[db.pedidos.Count];
+            int i = 0;
+            foreach (Order order in values) orders[i++] = order;
+            return orders;
         }
 
-        public virtual void addOrder(Order order)
+        public virtual Order createOrder(int user_id)
         {
+            Order order = new Order(db.count_id_pedido, user_id);
             db.pedidos.Add(db.count_id_pedido++, order);
+            return order;
         }
     }
 }

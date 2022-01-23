@@ -7,11 +7,11 @@ using apoo_2021_t1.src.Models;
 
 namespace apoo_2021_t1.src.Singleton
 {
-    internal class Database
+    internal class Storage
     {
-        static Database db_instance = null;
+        static Storage db_instance = null;
 
-        internal IDictionary<int, Comida> itens;
+        internal IDictionary<int, Item> itens;
         internal int count_id_item = 1;
 
         internal IDictionary<int, Order> pedidos;
@@ -21,7 +21,7 @@ namespace apoo_2021_t1.src.Singleton
         internal IDictionary<int, Pessoa> pessoas_id_indexes;
         internal int count_id_pessoa = 1;
 
-        private Database()
+        private Storage()
         {
             Console.WriteLine("Criando banco");
 
@@ -37,21 +37,23 @@ namespace apoo_2021_t1.src.Singleton
             };
             count_id_pessoa = 3;
 
-            itens = new Dictionary<int, Comida>
+            itens = new Dictionary<int, Item>
             {
-                { 1, new Comida("Hamburguer", 5.0f, 1) },
-                { 2, new Comida("Pastel", 3.5f, 2) },
-                { 3, new Comida("Café", 1.0f, 3) }
+                { 1, new Item("Hamburguer", 5.0f, 1) },
+                { 2, new Item("Pastel", 3.5f, 2) },
+                { 3, new Item("Café", 1.0f, 3) }
             };
             count_id_item = 4;
+
+            pedidos = new Dictionary<int, Order>();
         }
 
-        public static Database Instance
+        public static Storage Instance
         {
             get
             {
                 if (db_instance == null)
-                    db_instance = new Database();
+                    db_instance = new Storage();
                 return db_instance;
             }
         }

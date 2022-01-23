@@ -15,28 +15,28 @@ namespace apoo_2021_t1.src.Facade
         private BancoProxy db;
         private int id;
 
-        internal IDictionary<int, myTuple<Comida, int>> cart;
+        internal IDictionary<int, myTuple<Item, int>> cart;
         public Manager(int id)
         {
             Console.WriteLine("Criando Facade");
             this.id = id;
             db = new BancoProxy(id);
-            cart = new Dictionary<int, myTuple<Comida, int>>();
+            cart = new Dictionary<int, myTuple<Item, int>>();
         }
 
-        public Comida[] getItems()
+        public Item[] getItems()
         {
             return db.getItems();
         }
 
         public bool addToCart(int id)
         {
-            myTuple<Comida, int> comida;
-            if (!cart.TryGetValue(id, out comida))
+            myTuple<Item, int> item;
+            if (!cart.TryGetValue(id, out item))
             {
-                Comida exists = db.getItem(id);
+                Item exists = db.getItem(id);
                 if (exists == null) return false;
-                cart.Add(id, new myTuple<Comida, int>(exists, 1));
+                cart.Add(id, new myTuple<Item, int>(exists, 1));
                 return true;
             }
             cart[id].Item2 += 1;
@@ -44,8 +44,8 @@ namespace apoo_2021_t1.src.Facade
         }
         public bool removeFromCart(int id)
         {
-            myTuple<Comida, int> comida;
-            if (!cart.TryGetValue(id, out comida))
+            myTuple<Item, int> item;
+            if (!cart.TryGetValue(id, out item))
             {
                 return false;
             }
@@ -61,9 +61,17 @@ namespace apoo_2021_t1.src.Facade
 
         public void order()
         {
-            Order pedido = new Order();
+            Order order = db.createOrder(id);
+
+            foreach (int key in cart.Keys)
+                if (cart[key].Item2 > 0) order.addItem(key, cart[key]);
 
             cart.Clear();
+        }
+
+        public Order[] getOrders()
+        {
+            return db.getOrders();
         }
     }
 }

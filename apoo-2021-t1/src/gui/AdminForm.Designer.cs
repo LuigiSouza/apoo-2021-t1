@@ -1,5 +1,4 @@
-﻿
-namespace apoo_2021_t1.src.gui
+﻿namespace apoo_2021_t1.src.gui
 {
     partial class AdminForm
     {
@@ -29,16 +28,26 @@ namespace apoo_2021_t1.src.gui
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutOrders = new System.Windows.Forms.FlowLayoutPanel();
+            this.refresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flowLayoutOrders
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 25);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(705, 340);
-            this.flowLayoutPanel1.TabIndex = 0;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            this.flowLayoutOrders.Location = new System.Drawing.Point(12, 25);
+            this.flowLayoutOrders.Name = "flowLayoutOrders";
+            this.flowLayoutOrders.Size = new System.Drawing.Size(705, 340);
+            this.flowLayoutOrders.TabIndex = 0;
+            // 
+            // refresh
+            // 
+            this.refresh.Location = new System.Drawing.Point(12, 371);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(75, 23);
+            this.refresh.TabIndex = 1;
+            this.refresh.Text = "Refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // AdminForm
             // 
@@ -46,7 +55,8 @@ namespace apoo_2021_t1.src.gui
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(734, 450);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.refresh);
+            this.Controls.Add(this.flowLayoutOrders);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);
@@ -56,6 +66,7 @@ namespace apoo_2021_t1.src.gui
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutOrders;
+        private System.Windows.Forms.Button refresh;
     }
 }

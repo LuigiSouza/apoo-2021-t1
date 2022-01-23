@@ -8,18 +8,50 @@ using apoo_2021_t1.src.utils;
 
 namespace apoo_2021_t1.src.Models
 {
-    class Order
+    public class Order
     {
-        private IDictionary<int, myTuple<Comida, int>> comidas;
+        private int user_id;
+        private int id;
+
+        private IDictionary<int, myTuple<Item, int>> items;
+
+        public string status = "Pendente";
         public bool finished = false;
-        public Order()
+        public Order(int id, int user_id)
         {
-            this.comidas = new Dictionary<int, myTuple<Comida, int>>();
+            this.id = id;
+            this.user_id = user_id;
+            this.items = new Dictionary<int, myTuple<Item, int>>();
         }
 
-        public void addItem(int id, myTuple<Comida, int> comida)
+        public int getId()
         {
-            this.comidas.Add(id, comida);
+            return this.id;
+        }
+        public string getStatus()
+        {
+            return this.status;
+        }
+
+        public void addItem(int id, myTuple<Item, int> item)
+        {
+            this.items.Add(id, item);
+        }
+
+        public float getTotalPrice()
+        {
+            float total = 0;
+            foreach (myTuple<Item, int> item in items.Values)
+                total += item.Item1.getValue() * item.Item2;
+            return total;
+        }
+
+        public int getTotalCount()
+        {
+            int total = 0;
+            foreach (myTuple<Item, int> item in items.Values)
+                total += item.Item2;
+            return total;
         }
     }
 }

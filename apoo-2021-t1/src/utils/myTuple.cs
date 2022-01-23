@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace apoo_2021_t1.src.utils
 {
-    class myTuple<T1, T2>
+    public class myTuple<T1, T2>
     {
         public myTuple(T1 t1, T2 t2)
         {

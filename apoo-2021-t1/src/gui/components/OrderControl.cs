@@ -7,40 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using apoo_2021_t1.src.Facade;
 
 namespace apoo_2021_t1.src.gui.components
 {
-    public partial class Item : UserControl
+    public partial class OrderControl : UserControl
     {
-        public event EventHandler minusClick;
-        public event EventHandler addClick;
-        public Item(EventHandler min, EventHandler add)
+        public event EventHandler expandClick;
+        public OrderControl(EventHandler exp)
         {
-            this.minusClick = min;
-            this.addClick = add;
             InitializeComponent();
+            this.expandClick = exp;
         }
 
         #region Properties
 
-        private string _title;
+        private string _status;
         private float _price;
-        private int _quantity;
         private int _id;
+        private int _quantity;
 
         [Category("Custom Props")]
-        public string Title
+        public string Status
         {
-            get { return _title; }
-            set { _title = value; title.Text = value; }
-        }
-
-        [Category("Custom Props")]
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
+            get { return _status; }
+            set { _status = value; this.status.Text = _status; }
         }
 
         [Category("Custom Props")]
@@ -50,6 +40,13 @@ namespace apoo_2021_t1.src.gui.components
             set { _price = value; price.Text = "R$ " + value.ToString("0.00"); }
         }
 
+
+        [Category("Custom Props")]
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; this.id.Text = value.ToString(); }
+        }
         [Category("Custom Props")]
         public int Quantity
         {
@@ -59,20 +56,25 @@ namespace apoo_2021_t1.src.gui.components
 
         #endregion
 
-        private void minBtn_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            var handler = minusClick;
+
+        }
+
+        private void title_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void expand_Click(object sender, EventArgs e)
+        {
+            var handler = expandClick;
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void status_Click(object sender, EventArgs e)
         {
-        }
 
-        private void addBtn_Click(object sender, EventArgs e)
-        {
-            var handler = addClick;
-            if (handler != null) handler(this, EventArgs.Empty);
         }
     }
 }
