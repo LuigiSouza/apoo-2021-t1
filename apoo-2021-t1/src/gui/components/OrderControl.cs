@@ -68,8 +68,7 @@ namespace apoo_2021_t1.src.gui.components
 
         private void expand_Click(object sender, EventArgs e)
         {
-            var handler = expandClick;
-            if (handler != null) handler(this, EventArgs.Empty);
+            if (expandClick != null) expandClick(this, EventArgs.Empty);
         }
 
         private void status_Click(object sender, EventArgs e)

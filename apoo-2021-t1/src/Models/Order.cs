@@ -13,7 +13,7 @@ namespace apoo_2021_t1.src.Models
         private int user_id;
         private int id;
 
-        private IDictionary<int, myTuple<Item, int>> items;
+        public IDictionary<int, myTuple<Item, int>> items;
 
         public string status = "Pendente";
         public bool finished = false;

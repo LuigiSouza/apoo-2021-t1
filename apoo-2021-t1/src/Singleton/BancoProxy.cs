@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using apoo_2021_t1.src.Models;
+using apoo_2021_t1.src.utils;
 
 namespace apoo_2021_t1.src.Singleton
 {
@@ -47,6 +48,24 @@ namespace apoo_2021_t1.src.Singleton
             if (hasPermission(Roles_enum.admin))
             {
                 return base.getOrders();
+            }
+            return null;
+        }
+
+        public override Order getOrder(int id)
+        {
+            if (hasPermission(Roles_enum.admin))
+            {
+                return base.getOrder(id);
+            }
+            return null;
+        }
+
+        public override myTuple<Item, int>[] getOrderItems(int id)
+        {
+            if (hasPermission(Roles_enum.admin))
+            {
+                return base.getOrderItems(id);
             }
             return null;
         }

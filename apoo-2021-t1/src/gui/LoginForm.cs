@@ -23,10 +23,6 @@ namespace apoo_2021_t1.src.gui
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            new LoginForm().Show();
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {

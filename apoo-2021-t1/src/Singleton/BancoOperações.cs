@@ -53,6 +53,28 @@ namespace apoo_2021_t1.src.Singleton
 
             return item;
         }
+        public virtual Order getOrder(int id)
+        {
+            Order order;
+            if (!db.pedidos.TryGetValue(id, out order))
+            {
+                return null;
+            }
+
+            return order;
+        }
+        public virtual myTuple<Item, int>[] getOrderItems(int id)
+        {
+            Order order;
+            if (!db.pedidos.TryGetValue(id, out order))
+            {
+                return null;
+            }
+            myTuple<Item, int>[] ret = new myTuple<Item, int>[order.items.Count];
+            int i = 0;
+            foreach (myTuple<Item, int> item in order.items.Values) ret[i++] = item;
+            return ret;
+        }
 
         public Item[] getItems()
         {

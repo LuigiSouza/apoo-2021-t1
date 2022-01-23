@@ -73,5 +73,15 @@ namespace apoo_2021_t1.src.Facade
         {
             return db.getOrders();
         }
+
+        public Order getOrder(int id)
+        {
+            return db.getOrder(id);
+        }
+
+        public myTuple<Item, int>[] getOrderItems(int id)
+        {
+            return db.getOrderItems(id);
+        }
     }
 }

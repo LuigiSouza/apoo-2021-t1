@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using apoo_2021_t1.src.gui.components;
 using apoo_2021_t1.src.Facade;
 using apoo_2021_t1.src.Models;
+using apoo_2021_t1.src.utils;
 
 namespace apoo_2021_t1.src.gui
 {
@@ -17,6 +18,7 @@ namespace apoo_2021_t1.src.gui
     {
         private int id;
         private Manager facade;
+        private bool show = false;
         public AdminForm(int id)
         {
             this.id = id;
@@ -40,18 +42,51 @@ namespace apoo_2021_t1.src.gui
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            orderDetails.Hide();
             loadOrders();
+        }
+
+        private void switchShow(object sender, EventArgs e)
+        {
+            if (show)
+            {
+                flowLayoutOrders.Show();
+                refresh.Show();
+                orderDetails.Hide();
+            }
+            else
+            {
+                flowLayoutOrders.Hide();
+                refresh.Hide();
+                orderDetails.Show();
+            }
+            show = !show;
         }
 
         private void expand(object sender, EventArgs e)
         {
-
+            OrderControl orderControl = (OrderControl)sender;
+            Order order = facade.getOrder(orderControl.Id);
+            if (order == null) return;
+            orderDetails.loadComponent(order);
+            myTuple<Item, int>[] itens = facade.getOrderItems(order.getId());
+            foreach (myTuple<Item, int> item in itens)
+            {
+                Console.WriteLine(item.Item1.getName());
+                orderDetails.addItem(item);
+            }
+            switchShow(sender, e);
         }
 
         private void refresh_Click(object sender, EventArgs e)
         {
             flowLayoutOrders.Controls.Clear();
             loadOrders();
+        }
+
+        private void orderDetails_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

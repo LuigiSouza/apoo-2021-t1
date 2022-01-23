@@ -11,22 +11,18 @@ using apoo_2021_t1.src.Facade;
 
 namespace apoo_2021_t1.src.gui.components
 {
-    public partial class ItemControl : UserControl
+    public partial class ItemDetailsControl : UserControl
     {
-        public event EventHandler minusClick;
-        public event EventHandler addClick;
-        public ItemControl(EventHandler min, EventHandler add)
+        public ItemDetailsControl()
         {
-            this.minusClick = min;
-            this.addClick = add;
             InitializeComponent();
         }
 
         #region Properties
 
         private string _title;
-        private float _price;
-        private int _quantity;
+        private float _price = 0.0f;
+        private int _quantity = 0;
         private int _id;
 
         [Category("Custom Props")]
@@ -47,30 +43,41 @@ namespace apoo_2021_t1.src.gui.components
         public float Price
         {
             get { return _price; }
-            set { _price = value; price.Text = "R$ " + value.ToString("0.00"); }
+            set
+            {
+                _price = value;
+                totalPrice.Text = "R$ " + (value * _quantity).ToString("0.00");
+                price.Text = "R$ " + value.ToString("0.00");
+            }
         }
 
         [Category("Custom Props")]
         public int Quantity
         {
             get { return _quantity; }
-            set { _quantity = value; quantity.Text = value.ToString(); }
+            set
+            {
+                _quantity = value;
+                totalPrice.Text = "R$ " + (value * _price).ToString("0.00");
+                quantity.Text = value.ToString();
+            }
         }
 
         #endregion
 
-        private void minBtn_Click(object sender, EventArgs e)
-        {
-            if (minusClick != null) minusClick(this, EventArgs.Empty);
-        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            if (addClick != null) addClick(this, EventArgs.Empty);
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
