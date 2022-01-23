@@ -76,6 +76,7 @@
     <Compile Include="src\Models\Administrador.cs" />
     <Compile Include="src\Models\Cliente.cs" />
     <Compile Include="src\Models\Comida.cs" />
+    <Compile Include="src\Models\Order.cs" />
     <Compile Include="src\Models\Pessoa.cs" />
     <Compile Include="src\Singleton\BancoOperações.cs" />
     <Compile Include="src\Singleton\Database.cs" />

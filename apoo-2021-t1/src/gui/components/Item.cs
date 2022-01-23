@@ -47,7 +47,7 @@ namespace apoo_2021_t1.src.gui.components
         public float Price
         {
             get { return _price; }
-            set { _price = value; price.Text = "R$ " + value.ToString(); }
+            set { _price = value; price.Text = "R$ " + value.ToString("0.00"); }
         }
 
         [Category("Custom Props")]

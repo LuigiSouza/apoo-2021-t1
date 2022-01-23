@@ -41,7 +41,7 @@ namespace apoo_2021_t1.src.Singleton
             Pessoa pessoa = getPessoa(user);
 
             if (pessoa == null || !pessoa.passwordCorrect(password)) return null;
-            return new myTuple<int, string>(pessoa.getId(), pessoa.getRole());
+            return new myTuple<int, string>(pessoa.getId(), pessoa.getRole().ToString());
         }
         public Comida getItem(int id)
         {
@@ -61,6 +61,11 @@ namespace apoo_2021_t1.src.Singleton
             int i = 0;
             foreach (Comida comida in values) comidas[i++] = comida;
             return comidas;
+        }
+
+        public virtual void addOrder(Order order)
+        {
+            db.pedidos.Add(db.count_id_pedido++, order);
         }
     }
 }

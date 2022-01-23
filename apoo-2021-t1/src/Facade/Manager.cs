@@ -58,5 +58,12 @@ namespace apoo_2021_t1.src.Facade
         {
             cart.Clear();
         }
+
+        public void order()
+        {
+            Order pedido = new Order();
+
+            cart.Clear();
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace apoo_2021_t1.src.Models
 
         public string getUser() { return user; }
         public int getId() { return id; }
-        public string getRole() { return role.ToString(); }
+        public Roles_enum getRole() { return role; }
 
         public bool passwordCorrect(string password) { return this.password == password; }
     }

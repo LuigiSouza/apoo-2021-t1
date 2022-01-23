@@ -12,9 +12,15 @@ namespace apoo_2021_t1.src.Singleton
         static Database db_instance = null;
 
         internal IDictionary<int, Comida> itens;
+        internal int count_id_item = 1;
+
+        internal IDictionary<int, Order> pedidos;
+        internal int count_id_pedido = 1;
 
         internal IDictionary<string, Pessoa> pessoas;
         internal IDictionary<int, Pessoa> pessoas_id_indexes;
+        internal int count_id_pessoa = 1;
+
         private Database()
         {
             Console.WriteLine("Criando banco");
@@ -29,6 +35,7 @@ namespace apoo_2021_t1.src.Singleton
                 {1, pessoas["admin"] },
                 {2, pessoas["cliente"] }
             };
+            count_id_pessoa = 3;
 
             itens = new Dictionary<int, Comida>
             {
@@ -36,6 +43,7 @@ namespace apoo_2021_t1.src.Singleton
                 { 2, new Comida("Pastel", 3.5f, 2) },
                 { 3, new Comida("Café", 1.0f, 3) }
             };
+            count_id_item = 4;
         }
 
         public static Database Instance

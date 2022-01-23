@@ -59,7 +59,7 @@ namespace apoo_2021_t1.src.gui
             if (facade.removeFromCart(item.Id))
             {
                 item.Quantity -= 1;
-                update_total(-item.Price);
+                Total -= item.Price;
             }
         }
         private void add_btn(object sender, EventArgs e)
@@ -68,43 +68,24 @@ namespace apoo_2021_t1.src.gui
             if (facade.addToCart(item.Id))
             {
                 item.Quantity += 1;
-                update_total(item.Price);
+                Total += item.Price;
             }
         }
 
-        private void update_total(float total)
-        {
-            this.Total += total;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void clearCart_Click(object sender, EventArgs e)
         {
             facade.clearCart();
             foreach (Item item in flowLayoutPanel1.Controls)
                 item.Quantity = 0;
+            Total = 0;
         }
 
-        private void total_Click(object sender, EventArgs e)
+        private void finishCart_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            facade.order();
+            foreach (Item item in flowLayoutPanel1.Controls)
+                item.Quantity = 0;
+            Total = 0;
         }
     }
 }

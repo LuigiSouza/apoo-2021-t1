@@ -22,8 +22,23 @@ namespace apoo_2021_t1.src.Singleton
             this.id = id;
         }
 
-        private void hasPermission() { }
+        private bool hasPermission(Roles_enum role)
+        {
+            Pessoa pessoa;
+            if (!db.pessoas_id_indexes.TryGetValue(id, out pessoa))
+            {
+                return false;
+            }
 
+            return pessoa.getRole() == role;
+        }
 
+        public override void addOrder(Order order)
+        {
+            if (hasPermission(Roles_enum.customer))
+            {
+                base.addOrder(order);
+            }
+        }
     }
 }

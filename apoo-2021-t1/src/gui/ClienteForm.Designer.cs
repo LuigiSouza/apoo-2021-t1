@@ -34,8 +34,8 @@ namespace apoo_2021_t1.src.gui
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.zeroBtn = new System.Windows.Forms.Button();
+            this.finishCart = new System.Windows.Forms.Button();
+            this.clearCart = new System.Windows.Forms.Button();
             this.labelTotal = new System.Windows.Forms.Label();
             this.total = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -47,7 +47,6 @@ namespace apoo_2021_t1.src.gui
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(633, 343);
             this.flowLayoutPanel1.TabIndex = 0;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // button1
             // 
@@ -57,7 +56,6 @@ namespace apoo_2021_t1.src.gui
             this.button1.TabIndex = 0;
             this.button1.Text = "Principal";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -68,25 +66,25 @@ namespace apoo_2021_t1.src.gui
             this.button2.Text = "Pedidos";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // finishCart
             // 
-            this.button3.Location = new System.Drawing.Point(397, 361);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(137, 45);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Pedir";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.finishCart.Location = new System.Drawing.Point(397, 361);
+            this.finishCart.Name = "finishCart";
+            this.finishCart.Size = new System.Drawing.Size(137, 45);
+            this.finishCart.TabIndex = 2;
+            this.finishCart.Text = "Pedir";
+            this.finishCart.UseVisualStyleBackColor = true;
+            this.finishCart.Click += new System.EventHandler(this.finishCart_Click);
             // 
-            // zeroBtn
+            // clearCart
             // 
-            this.zeroBtn.Location = new System.Drawing.Point(254, 361);
-            this.zeroBtn.Name = "zeroBtn";
-            this.zeroBtn.Size = new System.Drawing.Size(137, 45);
-            this.zeroBtn.TabIndex = 3;
-            this.zeroBtn.Text = "Zerar";
-            this.zeroBtn.UseVisualStyleBackColor = true;
-            this.zeroBtn.Click += new System.EventHandler(this.button4_Click);
+            this.clearCart.Location = new System.Drawing.Point(254, 361);
+            this.clearCart.Name = "clearCart";
+            this.clearCart.Size = new System.Drawing.Size(137, 45);
+            this.clearCart.TabIndex = 3;
+            this.clearCart.Text = "Zerar";
+            this.clearCart.UseVisualStyleBackColor = true;
+            this.clearCart.Click += new System.EventHandler(this.clearCart_Click);
             // 
             // labelTotal
             // 
@@ -97,7 +95,6 @@ namespace apoo_2021_t1.src.gui
             this.labelTotal.Size = new System.Drawing.Size(65, 26);
             this.labelTotal.TabIndex = 4;
             this.labelTotal.Text = "Total:";
-            this.labelTotal.Click += new System.EventHandler(this.total_Click);
             // 
             // total
             // 
@@ -108,7 +105,6 @@ namespace apoo_2021_t1.src.gui
             this.total.Size = new System.Drawing.Size(70, 26);
             this.total.TabIndex = 5;
             this.total.Text = "R$ 00";
-            this.total.Click += new System.EventHandler(this.label1_Click);
             // 
             // ClienteForm
             // 
@@ -118,8 +114,8 @@ namespace apoo_2021_t1.src.gui
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.total);
             this.Controls.Add(this.labelTotal);
-            this.Controls.Add(this.zeroBtn);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.clearCart);
+            this.Controls.Add(this.finishCart);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -136,8 +132,8 @@ namespace apoo_2021_t1.src.gui
         private FlowLayoutPanel flowLayoutPanel1;
         private Button button1;
         private Button button2;
-        private Button button3;
-        private Button zeroBtn;
+        private Button finishCart;
+        private Button clearCart;
         private Label labelTotal;
         private Label total;
     }
