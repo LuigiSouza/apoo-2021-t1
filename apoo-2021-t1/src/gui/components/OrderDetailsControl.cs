@@ -9,8 +9,8 @@ namespace apoo_2021_t1.src.gui.components
 {
     public partial class OrderDetailsControl : UserControl
     {
-        Command.Command reject, accept;
-        EventHandler backClick;
+        private Command.Command reject, accept;
+        private EventHandler backClick;
         public OrderDetailsControl()
         {
             InitializeComponent();

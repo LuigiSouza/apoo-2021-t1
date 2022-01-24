@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using apoo_2021_t1.src.gui;
 
-namespace apoo_2021_t1.src.gui
+namespace apoo_2021_t1.src.gui.Factory
 {
     class AdminFactory : FactoryForm
     {

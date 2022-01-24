@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace apoo_2021_t1.src.gui
+namespace apoo_2021_t1.src.gui.Factory
 {
     interface FactoryForm
     {

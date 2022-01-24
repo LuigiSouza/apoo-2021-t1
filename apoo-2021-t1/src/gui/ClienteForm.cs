@@ -12,7 +12,10 @@ namespace apoo_2021_t1.src.gui
     {
         private int id;
         private Manager facade;
-
+        
+        /**
+        * ... Varáveis para controlar que elementos mostrar na tela inicial ...
+        */
         private bool main = true;
         private bool show = false;
 

@@ -11,6 +11,10 @@ namespace apoo_2021_t1.src.Facade
         private BancoProxy db;
         private int id;
 
+        /**
+        * ... Carrinho com os itens a serem pedidos: 
+        * IDictionary<quantia, myTuple<Item, id>> ...
+        */
         internal IDictionary<int, myTuple<Item, int>> cart;
         public Manager(int id)
         {

@@ -2,12 +2,14 @@
 using System.Windows.Forms;
 using apoo_2021_t1.src.Singleton;
 using apoo_2021_t1.src.utils;
+using apoo_2021_t1.src.gui.Factory;
 
 namespace apoo_2021_t1.src.gui
 {
     public partial class LoginForm : Form
     {
-        BancoProxy db;
+        private BancoProxy db;
+        private FactoryForm factory;
 
         public LoginForm()
         {
@@ -28,7 +30,6 @@ namespace apoo_2021_t1.src.gui
             else
             {
                 Console.WriteLine("Login: " + data.Item2);
-                FactoryForm factory;
                 switch (data.Item2)
                 {
                     case "customer":

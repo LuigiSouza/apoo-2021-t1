@@ -4,7 +4,7 @@ namespace apoo_2021_t1.src.Command
 {
     class AcceptCommand : Command
     {
-        Order order;
+        private Order order;
         public AcceptCommand(Order order)
         {
             this.order = order;

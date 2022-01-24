@@ -6,15 +6,27 @@ namespace apoo_2021_t1.src.Singleton
 {
     internal class Storage
     {
-        static Storage db_instance = null;
+        private static Storage db_instance = null;
 
+        /**
+        * ... IDictionary<id, Model> ...
+        */
         internal IDictionary<int, Item> itens;
         internal int count_id_item = 1;
 
+        /**
+        * ... IDictionary<id, Model> ...
+        */
         internal IDictionary<int, Order> pedidos;
         internal int count_id_pedido = 1;
 
+        /**
+        * ... IDictionary<user, Model> ...
+        */
         internal IDictionary<string, Pessoa> pessoas;
+        /**
+        * ... IDictionary<id, Model> ...
+        */
         internal IDictionary<int, Pessoa> pessoas_id_indexes;
         internal int count_id_pessoa = 1;
 
