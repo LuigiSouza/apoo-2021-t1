@@ -115,7 +115,7 @@ namespace apoo_2021_t1.src.gui
         private void ClienteForm_Load(object sender, EventArgs e)
         {
             this.orderDetails.Hide();
-            showComponents();
+            loadPanelItems();
         }
 
         private void minus_btn(object sender, EventArgs e)

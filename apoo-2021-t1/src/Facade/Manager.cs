@@ -67,6 +67,7 @@ namespace apoo_2021_t1.src.Facade
 
         public Order[] getOwnOrders()
         {
+            Console.WriteLine(this.id);
             return db.getOwnOrders(this.id);
         }
         public Order[] getOrders()

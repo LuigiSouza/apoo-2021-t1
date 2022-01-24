@@ -25,14 +25,16 @@ namespace apoo_2021_t1.src.Singleton
             pessoas = new Dictionary<string, Pessoa>
             {
                 { "admin", new Administrador("admin", "admin", 1) },
-                { "cliente", new Cliente("cliente", "cliente", 2) }
+                { "cliente", new Cliente("cliente", "cliente", 2) },
+                { "cliente2", new Cliente("cliente2", "cliente2", 3) }
             };
             pessoas_id_indexes = new Dictionary<int, Pessoa>
             {
                 {1, pessoas["admin"] },
-                {2, pessoas["cliente"] }
+                {2, pessoas["cliente"] },
+                {3, pessoas["cliente2"] }
             };
-            count_id_pessoa = 3;
+            count_id_pessoa = 4;
 
             itens = new Dictionary<int, Item>
             {
