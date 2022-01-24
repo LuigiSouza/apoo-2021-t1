@@ -109,7 +109,6 @@ namespace apoo_2021_t1.src.gui
             myTuple<Item, int>[] itens = facade.getOrderItems(order.getId());
             foreach (myTuple<Item, int> item in itens)
             {
-                Console.WriteLine(item.Item1.getName());
                 orderDetails.addItem(item);
             }
             switchShow(sender, e);

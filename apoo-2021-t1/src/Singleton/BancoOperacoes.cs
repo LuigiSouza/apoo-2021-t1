@@ -5,10 +5,10 @@ using apoo_2021_t1.src.utils;
 
 namespace apoo_2021_t1.src.Singleton
 {
-    class BancoOperações
+    class BancoOperacoes
     {
         protected Storage db;
-        public BancoOperações()
+        public BancoOperacoes()
         {
             Console.WriteLine("Criando Operações");
             db = Storage.Instance;

@@ -4,7 +4,7 @@ using apoo_2021_t1.src.utils;
 
 namespace apoo_2021_t1.src.Singleton
 {
-    class BancoProxy : BancoOperações
+    class BancoProxy : BancoOperacoes
     {
         private int id;
 

@@ -102,7 +102,7 @@
     <Compile Include="src\Models\Item.cs" />
     <Compile Include="src\Models\Order.cs" />
     <Compile Include="src\Models\Pessoa.cs" />
-    <Compile Include="src\Singleton\BancoOperações.cs" />
+    <Compile Include="src\Singleton\BancoOperacoes.cs" />
     <Compile Include="src\Singleton\Storage.cs" />
     <Compile Include="src\Singleton\BancoProxy.cs" />
     <Compile Include="src\utils\myTuple.cs" />

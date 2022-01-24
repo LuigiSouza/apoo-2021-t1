@@ -11,11 +11,10 @@ namespace apoo_2021_t1.src.Facade
         private BancoProxy db;
         private int id;
 
-        /**
-        * ... Carrinho com os itens a serem pedidos: 
-        * IDictionary<quantia, myTuple<Item, id>> ...
-        */
-        internal IDictionary<int, myTuple<Item, int>> cart;
+        ///
+        /// Carrinho com os itens a serem pedidos: 
+        /// IDictionary<quantia, myTuple<Item, id>> ...
+        private IDictionary<int, myTuple<Item, int>> cart;
         public Manager(int id)
         {
             Console.WriteLine("Criando Facade");
@@ -49,8 +48,8 @@ namespace apoo_2021_t1.src.Facade
             {
                 return false;
             }
-            if (cart[id].Item2 == 0) return false;
-            cart[id].Item2 -= 1;
+            if (item.Item2 == 0) return false;
+            item.Item2 -= 1;
             return true;
         }
 
@@ -71,7 +70,6 @@ namespace apoo_2021_t1.src.Facade
 
         public Order[] getOwnOrders()
         {
-            Console.WriteLine(this.id);
             return db.getOwnOrders(this.id);
         }
         public Order[] getOrders()
