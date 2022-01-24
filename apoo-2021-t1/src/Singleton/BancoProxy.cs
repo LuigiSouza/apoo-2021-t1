@@ -50,6 +50,11 @@ namespace apoo_2021_t1.src.Singleton
             return null;
         }
 
+        public override Order[] getOwnOrders(int id)
+        {
+            return base.getOwnOrders(this.id);
+        }
+
         public override Order getOrder(int id)
         {
             Order order = base.getOrder(id);

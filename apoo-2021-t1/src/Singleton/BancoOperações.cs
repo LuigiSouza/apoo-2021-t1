@@ -81,6 +81,17 @@ namespace apoo_2021_t1.src.Singleton
             foreach (Item item in values) items[i++] = item;
             return items;
         }
+
+        public virtual Order[] getOwnOrders(int id)
+        {
+            ICollection<Order> values = db.pedidos.Values;
+            Order[] orders = new Order[db.pedidos.Count];
+            int i = 0;
+            foreach (Order order in values)
+                if (order.getUserId() == id)
+                    orders[i++] = order;
+            return orders;
+        }
         public virtual Order[] getOrders()
         {
             ICollection<Order> values = db.pedidos.Values;

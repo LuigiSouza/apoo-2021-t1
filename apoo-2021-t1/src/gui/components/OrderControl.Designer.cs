@@ -46,7 +46,7 @@ namespace apoo_2021_t1.src.gui.components
             this.price.AutoSize = true;
             this.price.BackColor = System.Drawing.SystemColors.ControlLight;
             this.price.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price.Location = new System.Drawing.Point(395, 76);
+            this.price.Location = new System.Drawing.Point(360, 76);
             this.price.Name = "price";
             this.price.Size = new System.Drawing.Size(39, 17);
             this.price.TabIndex = 7;
@@ -77,7 +77,7 @@ namespace apoo_2021_t1.src.gui.components
             this.panel1.Controls.Add(this.id);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(660, 135);
+            this.panel1.Size = new System.Drawing.Size(598, 135);
             this.panel1.TabIndex = 11;
             // 
             // label1
@@ -93,7 +93,7 @@ namespace apoo_2021_t1.src.gui.components
             // 
             // expand
             // 
-            this.expand.Location = new System.Drawing.Point(525, 52);
+            this.expand.Location = new System.Drawing.Point(462, 53);
             this.expand.Name = "expand";
             this.expand.Size = new System.Drawing.Size(75, 23);
             this.expand.TabIndex = 12;
@@ -106,7 +106,7 @@ namespace apoo_2021_t1.src.gui.components
             this.quantity.AutoSize = true;
             this.quantity.BackColor = System.Drawing.SystemColors.ControlLight;
             this.quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantity.Location = new System.Drawing.Point(395, 41);
+            this.quantity.Location = new System.Drawing.Point(360, 41);
             this.quantity.Name = "quantity";
             this.quantity.Size = new System.Drawing.Size(16, 17);
             this.quantity.TabIndex = 11;
@@ -117,7 +117,7 @@ namespace apoo_2021_t1.src.gui.components
             this.quantityLabel.AutoSize = true;
             this.quantityLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.quantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityLabel.Location = new System.Drawing.Point(333, 35);
+            this.quantityLabel.Location = new System.Drawing.Point(298, 35);
             this.quantityLabel.Name = "quantityLabel";
             this.quantityLabel.Size = new System.Drawing.Size(59, 24);
             this.quantityLabel.TabIndex = 10;
@@ -128,7 +128,7 @@ namespace apoo_2021_t1.src.gui.components
             this.status.AutoSize = true;
             this.status.BackColor = System.Drawing.SystemColors.ControlLight;
             this.status.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.Location = new System.Drawing.Point(183, 52);
+            this.status.Location = new System.Drawing.Point(168, 50);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(60, 24);
             this.status.TabIndex = 9;
@@ -140,7 +140,7 @@ namespace apoo_2021_t1.src.gui.components
             this.totalLabel.AutoSize = true;
             this.totalLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalLabel.Location = new System.Drawing.Point(333, 69);
+            this.totalLabel.Location = new System.Drawing.Point(298, 69);
             this.totalLabel.Name = "totalLabel";
             this.totalLabel.Size = new System.Drawing.Size(56, 24);
             this.totalLabel.TabIndex = 8;
@@ -153,7 +153,7 @@ namespace apoo_2021_t1.src.gui.components
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "OrderControl";
-            this.Size = new System.Drawing.Size(660, 135);
+            this.Size = new System.Drawing.Size(598, 135);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

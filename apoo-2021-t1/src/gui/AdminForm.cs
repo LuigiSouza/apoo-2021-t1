@@ -68,11 +68,10 @@ namespace apoo_2021_t1.src.gui
             OrderControl orderControl = (OrderControl)sender;
             Order order = facade.getOrder(orderControl.Id);
             if (order == null) return;
-            orderDetails.loadComponent(order);
+            orderDetails.loadComponent(id, order);
             myTuple<Item, int>[] itens = facade.getOrderItems(order.getId());
             foreach (myTuple<Item, int> item in itens)
             {
-                Console.WriteLine(item.Item1.getName());
                 orderDetails.addItem(item);
             }
             switchShow(sender, e);

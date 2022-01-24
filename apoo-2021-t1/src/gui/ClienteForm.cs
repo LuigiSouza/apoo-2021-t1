@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using apoo_2021_t1.src.gui.components;
 using apoo_2021_t1.src.Models;
 using apoo_2021_t1.src.Facade;
+using apoo_2021_t1.src.utils;
 
 namespace apoo_2021_t1.src.gui
 {
@@ -11,6 +12,9 @@ namespace apoo_2021_t1.src.gui
     {
         private int id;
         private Manager facade;
+
+        private bool main = true;
+        private bool show = false;
 
         public ClienteForm(int id)
         {
@@ -33,8 +37,25 @@ namespace apoo_2021_t1.src.gui
 
         #endregion
 
-        private void ClienteForm_Load(object sender, EventArgs e)
+        private void hideComponents()
         {
+            total.Hide();
+            clearCart.Hide();
+            finishCart.Hide();
+            total.Hide();
+            labelTotal.Hide();
+        }
+        private void showComponents()
+        {
+            total.Show();
+            clearCart.Show();
+            finishCart.Show();
+            total.Show();
+            labelTotal.Show();
+        }
+        private void loadPanelItems()
+        {
+            flowLayoutPanel1.Controls.Clear();
             Item[] items = facade.getItems();
             foreach (Item item in items)
             {
@@ -45,6 +66,56 @@ namespace apoo_2021_t1.src.gui
                 itemControl.Id = item.getId();
                 flowLayoutPanel1.Controls.Add(itemControl);
             };
+        }
+
+        private void loadPanelOrders()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            Order[] orders = facade.getOwnOrders();
+            foreach (Order order in orders)
+            {
+                OrderControl orderControl = new OrderControl(expand);
+                orderControl.Price = order.getTotalPrice();
+                orderControl.Quantity = order.getTotalCount();
+                orderControl.Id = order.getId();
+                orderControl.Status = order.getStatus();
+                flowLayoutPanel1.Controls.Add(orderControl);
+            };
+        }
+        private void switchShow(object sender, EventArgs e)
+        {
+            if (show)
+            {
+                flowLayoutPanel1.Show();
+                orderDetails.Hide();
+            }
+            else
+            {
+                flowLayoutPanel1.Hide();
+                orderDetails.Show();
+            }
+            show = !show;
+        }
+
+        private void expand(object sender, EventArgs e)
+        {
+            OrderControl orderControl = (OrderControl)sender;
+            Order order = facade.getOrder(orderControl.Id);
+            if (order == null) return;
+            orderDetails.loadComponent(id, order);
+            myTuple<Item, int>[] itens = facade.getOrderItems(order.getId());
+            foreach (myTuple<Item, int> item in itens)
+            {
+                Console.WriteLine(item.Item1.getName());
+                orderDetails.addItem(item);
+            }
+            switchShow(sender, e);
+        }
+
+        private void ClienteForm_Load(object sender, EventArgs e)
+        {
+            this.orderDetails.Hide();
+            showComponents();
         }
 
         private void minus_btn(object sender, EventArgs e)
@@ -84,6 +155,30 @@ namespace apoo_2021_t1.src.gui
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void mainBtn_Click(object sender, EventArgs e)
+        {
+            if (!main)
+            {
+                loadPanelItems();
+                showComponents();
+                flowLayoutPanel1.Show();
+                orderDetails.Hide();
+                if (show) switchShow(sender, e);
+                main = true;
+            }
+        }
+
+        private void oderbtn_Click(object sender, EventArgs e)
+        {
+            if (main)
+            {
+                loadPanelOrders();
+                hideComponents();
+                main = false;
+            }
 
         }
     }

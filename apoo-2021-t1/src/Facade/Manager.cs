@@ -65,6 +65,10 @@ namespace apoo_2021_t1.src.Facade
             cart.Clear();
         }
 
+        public Order[] getOwnOrders()
+        {
+            return db.getOwnOrders(this.id);
+        }
         public Order[] getOrders()
         {
             return db.getOrders();

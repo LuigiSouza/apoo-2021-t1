@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using apoo_2021_t1.src.utils;
 using apoo_2021_t1.src.Models;
@@ -17,12 +11,16 @@ namespace apoo_2021_t1.src.gui.components
     {
         Command.Command reject, accept;
         EventHandler backClick;
+        public OrderDetailsControl()
+        {
+            InitializeComponent();
+        }
+
         public OrderDetailsControl(EventHandler backClick)
         {
             this.backClick = backClick;
             InitializeComponent();
         }
-
         #region Properties
 
         private string _status;
@@ -62,14 +60,14 @@ namespace apoo_2021_t1.src.gui.components
             flowLayoutPanel1.Controls.Add(item);
         }
 
-        public void loadComponent(Order order)
+        public void loadComponent(int id, Order order)
         {
             reject = new RejectCommand(order);
             accept = new AcceptCommand(order);
             this.Id = order.getId();
             this.Status = order.getStatus();
             this.Price = order.getTotalPrice();
-            if (order.status != "Pendente")
+            if (order.status != "Pendente" || order.getUserId() == id)
             {
                 acceptBtn.Hide();
                 rejectBtn.Hide();
