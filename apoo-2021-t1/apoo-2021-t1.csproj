@@ -52,6 +52,7 @@
     <Compile Include="src\Command\Command.cs" />
     <Compile Include="src\Command\RejectCommand.cs" />
     <Compile Include="src\Facade\Manager.cs" />
+    <Compile Include="src\gui\AdminFactory.cs" />
     <Compile Include="src\gui\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +89,8 @@
     <Compile Include="src\gui\components\OrderDetailsControl.Designer.cs">
       <DependentUpon>OrderDetailsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\gui\FactoryForm.cs" />
+    <Compile Include="src\gui\ClienteFactory.cs" />
     <Compile Include="src\gui\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

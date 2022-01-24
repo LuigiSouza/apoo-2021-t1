@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using apoo_2021_t1.src.gui.components;
 using apoo_2021_t1.src.Models;
@@ -86,6 +80,11 @@ namespace apoo_2021_t1.src.gui
             foreach (ItemControl item in flowLayoutPanel1.Controls)
                 item.Quantity = 0;
             Total = 0;
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

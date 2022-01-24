@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using apoo_2021_t1.src.Models;
+﻿using System.Collections.Generic;
 using apoo_2021_t1.src.utils;
 
 namespace apoo_2021_t1.src.Models
@@ -27,6 +22,10 @@ namespace apoo_2021_t1.src.Models
         public int getId()
         {
             return this.id;
+        }
+        public int getUserId()
+        {
+            return this.user_id;
         }
         public string getStatus()
         {

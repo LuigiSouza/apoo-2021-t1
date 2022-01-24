@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using apoo_2021_t1.src.Models;
 using apoo_2021_t1.src.utils;
 
@@ -22,6 +18,8 @@ namespace apoo_2021_t1.src.Singleton
             Console.WriteLine("Criando proxy");
             this.id = id;
         }
+
+        private bool hasOwnership(Order order) { return order.getUserId() == id; }
 
         private bool hasPermission(Roles_enum role)
         {
@@ -54,16 +52,18 @@ namespace apoo_2021_t1.src.Singleton
 
         public override Order getOrder(int id)
         {
-            if (hasPermission(Roles_enum.admin))
+            Order order = base.getOrder(id);
+            if (hasOwnership(order) || hasPermission(Roles_enum.admin))
             {
-                return base.getOrder(id);
+                return order;
             }
             return null;
         }
 
         public override myTuple<Item, int>[] getOrderItems(int id)
         {
-            if (hasPermission(Roles_enum.admin))
+            Order order = base.getOrder(id);
+            if (hasOwnership(order) || hasPermission(Roles_enum.admin))
             {
                 return base.getOrderItems(id);
             }

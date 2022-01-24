@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using apoo_2021_t1.src.Singleton;
 using apoo_2021_t1.src.utils;
@@ -19,7 +12,6 @@ namespace apoo_2021_t1.src.gui
         public LoginForm()
         {
             db = new BancoProxy();
-            Storage asdf = Storage.Instance;
             InitializeComponent();
         }
 
@@ -36,18 +28,20 @@ namespace apoo_2021_t1.src.gui
             else
             {
                 Console.WriteLine("Login: " + data.Item2);
+                FactoryForm factory;
                 switch (data.Item2)
                 {
                     case "customer":
-                        new ClienteForm(data.Item1).Show();
+                        factory = new ClienteFactory();
                         break;
                     case "admin":
-                        new AdminForm(data.Item1).Show();
+                        factory = new AdminFactory();
                         break;
                     default:
                         MessageBox.Show("Role inválida.");
-                        break;
+                        return;
                 }
+                factory.createForm(data.Item1).Show();
 
             }
         }
